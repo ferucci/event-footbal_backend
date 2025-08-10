@@ -1,41 +1,31 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigModule } from '@nestjs/config';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { CardModule } from './player/player.module';
-import { SeedModule } from './seed/seed.module';
 import { TelegramModule } from './telegram/telegram.module';
 
 import { APP_GUARD } from '@nestjs/core';
 import { AuthModule } from './auth/auth.module';
 import { CustomThrottlerGuard } from './common/guards/throttler.guard';
+import config from './config';
+import { BDConfigFactory } from './config/db-config.factory';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
-    TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
-      useFactory: (configService: ConfigService) => ({
-        type: 'postgres',
-        host: configService.get('DB_HOST'),
-        port: +configService.get('DB_PORT'),
-        username: configService.get('DB_USERNAME'),
-        password: configService.get('DB_PASSWORD'),
-        database: configService.get('DB_NAME'),
-        entities: [__dirname + '/**/*.entity{.ts,.js}'],
-        synchronize: true, // В продакшене false, используйте миграции
-      }),
-      inject: [ConfigService],
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [config],
     }),
-    // Ограничиваю количество запросов
+    TypeOrmModule.forRootAsync({
+      useClass: BDConfigFactory,
+    }),
+    // Ограничиваю количество запросов к серверу
     ThrottlerModule.forRoot([{
       ttl: 10000, // Время жизни (в миллисекундах)
       limit: 20,   // Максимальное количество запросов за это время
     }]),
     CardModule,
-    SeedModule,
     TelegramModule,
     AuthModule,
   ],
@@ -43,8 +33,7 @@ import { CustomThrottlerGuard } from './common/guards/throttler.guard';
     {
       provide: APP_GUARD,
       useClass: CustomThrottlerGuard,
-    },
-    AppService],
-  controllers: [AppController]
+    }
+  ],
 })
 export class AppModule { }
