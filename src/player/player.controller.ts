@@ -17,10 +17,25 @@ import { PlayerService } from './player.service';
 
 @Controller('cards')
 export class PlayerController {
+  private selectionCounter: number = 0;
+  private lastResetDate: string = this.getCurrentDate();
   constructor(
     private readonly playerService: PlayerService,
     private readonly telegramService: TelegramService,
   ) { }
+
+  private getCurrentDate(): string {
+    const today = new Date();
+    return `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
+  }
+
+  private checkAndResetCounter(): void {
+    const today = this.getCurrentDate();
+    if (today !== this.lastResetDate) {
+      this.selectionCounter = 0;
+      this.lastResetDate = today;
+    }
+  }
 
   @Get()
   findAll(): Promise<Player[]> {
@@ -29,20 +44,21 @@ export class PlayerController {
 
   @HttpCode(200)
   async sendToTelegram(@Param('id') id: string): Promise<{ message: string }> {
+    this.checkAndResetCounter(); // Проверяем перед отправкой
+    this.selectionCounter++;
+
     const card = await this.playerService.findOne(+id);
     await this.telegramService.sendMessage(
-      `Был выбран Футболист "${card?.name}"!\n
-      Характеристики игрока:\n
-      Номер - ${card?.number}\n
-      Позиция - ${card?.position}\n
-      Рейтинг - ${card?.rate}
-      `,
+      `
+      Выбор #${this.selectionCounter}\n
+      Был выбран Футболист "${card?.name}"!`,
     );
     return { message: 'Card information sent to Telegram successfully' };
   }
 
   @Post('selected')
   async handleSelectedCard(@Body() cardData: SelectedPlayerDto): Promise<{ status: string; cardId: number; }> {
+    this.checkAndResetCounter();
     console.log('Received card data:', cardData);
     await this.sendToTelegram(String(cardData.id))
     await this.playerService.incrementClick(cardData.id);

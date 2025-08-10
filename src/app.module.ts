@@ -9,6 +9,7 @@ import { SeedModule } from './seed/seed.module';
 import { TelegramModule } from './telegram/telegram.module';
 
 import { APP_GUARD } from '@nestjs/core';
+import { AuthModule } from './auth/auth.module';
 import { CustomThrottlerGuard } from './common/guards/throttler.guard';
 
 @Module({
@@ -30,12 +31,13 @@ import { CustomThrottlerGuard } from './common/guards/throttler.guard';
     }),
     // Ограничиваю количество запросов
     ThrottlerModule.forRoot([{
-      ttl: 10000, // Время жизни (в миллисекундах) - 5 секунд
-      limit: 5,   // Максимальное количество запросов за это время
+      ttl: 10000, // Время жизни (в миллисекундах)
+      limit: 20,   // Максимальное количество запросов за это время
     }]),
     CardModule,
     SeedModule,
     TelegramModule,
+    AuthModule,
   ],
   providers: [
     {
