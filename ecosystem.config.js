@@ -9,7 +9,7 @@ const {
 module.exports = {
   apps: [{
     name: "okko",
-    script: "dist/src/main.js"
+    script: "npm start"
   }],
   deploy: {
     production: {
