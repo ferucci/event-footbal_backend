@@ -1,6 +1,6 @@
 const dotenv = require("dotenv")
 const path = require("node:path")
-dotenv.config({ path: path.join(__dirname, "..", ".env.deploy") })
+dotenv.config({ path: path.join(__dirname, ".env.deploy") })
 
 const {
   DEPLOY_USER, DEPLOY_HOST, DEPLOY_PATH, DEPLOY_REF, DEPLOY_REPO
