@@ -9,7 +9,13 @@ const {
 module.exports = {
   apps: [{
     name: "okko",
-    script: "npm start"
+    script: "npm start",
+
+    env_production: {  // Окружение для --env production
+      NODE_ENV: "production",
+      PORT: 3333,
+    }
+
   }],
   deploy: {
     production: {
