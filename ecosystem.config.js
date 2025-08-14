@@ -9,7 +9,7 @@ const {
 module.exports = {
   apps: [{
     name: "okko",
-    script: "npm start",
+    script: "dist/src/main.js",
 
     env_production: {  // Окружение для --env production
       NODE_ENV: "production",
