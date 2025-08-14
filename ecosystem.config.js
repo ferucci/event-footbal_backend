@@ -13,7 +13,7 @@ module.exports = {
 
     env_production: {  // Окружение для --env production
       NODE_ENV: "production",
-      PORT: 3333,
+      PORT: env.process.APP_PORT,
     }
 
   }],
