@@ -3,7 +3,7 @@ const path = require("node:path")
 dotenv.config({ path: path.join(__dirname, ".env.deploy") })
 
 const {
-  DEPLOY_USER, DEPLOY_HOST, DEPLOY_PATH, DEPLOY_REF, DEPLOY_REPO
+  DEPLOY_USER, DEPLOY_HOST, DEPLOY_PATH, DEPLOY_REF, DEPLOY_REPO, APP_PORT
 } = process.env;
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
 
     env_production: {  // Окружение для --env production
       NODE_ENV: "production",
-      PORT: env.process.APP_PORT,
+      PORT: APP_PORT,
     }
 
   }],
