@@ -20,8 +20,8 @@ export class Player {
   @Column({ length: 50 })
   position: string;
 
-  @Column('int')
-  rate: number;
+  @Column({ type: 'integer', nullable: true })  // nullable: true разрешает NULL
+  rate: number | null;
 
   @Column({ name: 'country_flag_url', length: 255 })
   country: string; // URL to flag image

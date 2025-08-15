@@ -10,7 +10,7 @@ export class CreatePlayerTable1630000000001 implements MigrationInterface {
                 "height" character varying(20),
                 "weight" character varying(20),
                 "position" character varying(50) NOT NULL,
-                "rate" integer NOT NULL,
+                "rate" integer,
                 "country_flag_url" character varying(255) NOT NULL,
                 "player_image_url" character varying(255) NOT NULL,
                 "created_at" TIMESTAMP NOT NULL DEFAULT now(),

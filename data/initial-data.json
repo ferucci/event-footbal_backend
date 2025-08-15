@@ -50,7 +50,7 @@
     "height": "185 см",
     "weight": "77 кг",
     "position": "Защитник",
-    "rate": 73,
+    "rate": 65,
     "country": "./images/flags/serbia.png",
     "image": "./images/players/05-Майсторович.png"
   },
@@ -61,7 +61,7 @@
     "height": "188 см",
     "weight": "89 кг",
     "position": "Защитник",
-    "rate": 89,
+    "rate": 82,
     "country": "./images/flags/russia.png",
     "image": "./images/players/06-Фернандес.png"
   },
@@ -72,7 +72,7 @@
     "height": "177 см",
     "weight": "69 кг",
     "position": "Защитник",
-    "rate": 79,
+    "rate": 84,
     "country": "./images/flags/russia.png",
     "image": "./images/players/07-Скопинцев.png"
   },
@@ -127,7 +127,7 @@
     "height": "185 см",
     "weight": "76 кг",
     "position": "Защитник",
-    "rate": 80,
+    "rate": 79,
     "country": "./images/flags/uruguay.png",
     "image": "./images/players/18-Маричаль.png"
   },
@@ -182,7 +182,7 @@
     "height": "184 см",
     "weight": "71 кг",
     "position": "Полузащитник",
-    "rate": 73,
+    "rate": 77,
     "country": "./images/flags/russia.png",
     "image": "./images/players/50-Кутицкий.png"
   },
@@ -193,7 +193,7 @@
     "height": "178 см",
     "weight": "73 кг",
     "position": "Нападающий",
-    "rate": 82,
+    "rate": 79,
     "country": "./images/flags/mexica.png",
     "image": "./images/players/24-Луис.png"
   },
@@ -237,7 +237,7 @@
     "height": "187 см",
     "weight": "77 кг",
     "position": "Полузащитник",
-    "rate": 82,
+    "rate": 76,
     "country": "./images/flags/russia.png",
     "image": "./images/players/74-Фомин.png"
   },
@@ -248,7 +248,7 @@
     "height": "182 см",
     "weight": "76 кг",
     "position": "Полузащитник",
-    "rate": 80,
+    "rate": 78,
     "country": "./images/flags/russia.png",
     "image": "./images/players/77-Макаров.png"
   },
@@ -270,7 +270,7 @@
     "height": "185 см",
     "weight": "68 кг",
     "position": "Полузащитник",
-    "rate": 72,
+    "rate": 65,
     "country": "./images/flags/russia.png",
     "image": "./images/players/88-Окишор.png"
   },
@@ -292,8 +292,118 @@
     "height": "178 см",
     "weight": "70 кг",
     "position": "Защитник",
-    "rate": 87,
+    "rate": 85,
     "country": "./images/flags/uruguay.png",
     "image": "./images/players/93-Лаксальт.png"
+  },
+  {
+    "id": 28,
+    "name": "Балаханов",
+    "number": "79",
+    "height": "177 см",
+    "weight": "64 кг",
+    "position": "Защитник",
+    "rate": null,
+    "country": "./images/flags/russia.png",
+    "image": "./images/players/79-Балаханов.png"
+  },
+  {
+    "id": 29,
+    "name": "Бабаев",
+    "number": "17",
+    "height": "172 см",
+    "weight": "72 кг",
+    "position": "Нападающий",
+    "rate": null,
+    "country": "./images/flags/russia.png",
+    "image": "./images/players/17-Бабаев.png"
+  },
+  {
+    "id": 30,
+    "name": "Гагнидзе",
+    "number": "34",
+    "height": "175 см",
+    "weight": "68 кг",
+    "position": "Полузащитник",
+    "rate": null,
+    "country": "./images/flags/russia.png",
+    "image": "./images/players/34-Гагнидзе.png"
+  },
+  {
+    "id": 31,
+    "name": "Зайдензаль",
+    "number": "56",
+    "height": "188 см",
+    "weight": "83 кг",
+    "position": "Защитник",
+    "rate": null,
+    "country": "./images/flags/russia.png",
+    "image": "./images/players/56-Зайдензаль.png"
+  },
+  {
+    "id": 32,
+    "name": "Зайнудтинов",
+    "number": "19",
+    "height": "183 см",
+    "weight": "73 кг",
+    "position": "Защитник",
+    "rate": null,
+    "country": "./images/flags/russia.png",
+    "image": "./images/players/56-Зайнутдинов.png"
+  },
+  {
+    "id": 33,
+    "name": "Касерес",
+    "number": "04",
+    "height": "177 см",
+    "weight": "73 кг",
+    "position": "Защитник",
+    "rate": 83,
+    "country": "./images/flags/russia.png",
+    "image": "./images/players/04-Касерес.png"
+  },
+  {
+    "id": 34,
+    "name": "Осипенко",
+    "number": "55",
+    "height": "193 см",
+    "weight": "83 кг",
+    "position": "Защитник",
+    "rate": 83,
+    "country": "./images/flags/russia.png",
+    "image": "./images/players/55-Осипенко.png"
+  },
+  {
+    "id": 35,
+    "name": "Рубенс",
+    "number": "55",
+    "height": "178 см",
+    "weight": "68 кг",
+    "position": "Полузащитник",
+    "rate": null,
+    "country": "./images/flags/russia.png",
+    "image": "./images/players/55-Рубенс.png"
+  },
+  {
+    "id": 36,
+    "name": "Сергеев",
+    "number": "33",
+    "height": "184 см",
+    "weight": "83 кг",
+    "position": "Нападающий",
+    "rate": null,
+    "country": "./images/flags/russia.png",
+    "image": "./images/players/33-Сергеев.png"
+  },
+  {
+    "id": 37,
+    "name": "Хубулов",
+    "number": "61",
+    "height": "181 см",
+    "weight": "82 кг",
+    "position": "Нападающий",
+    "rate": null,
+    "country": "./images/flags/russia.png",
+    "image": "./images/players/61-Хубулов.png"
   }
 ]
