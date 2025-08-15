@@ -342,14 +342,14 @@
   },
   {
     "id": 32,
-    "name": "Зайнудтинов",
+    "name": "Зайнутдинов",
     "number": "19",
     "height": "183 см",
     "weight": "73 кг",
     "position": "Защитник",
     "rate": null,
     "country": "./images/flags/russia.png",
-    "image": "./images/players/56-Зайнутдинов.png"
+    "image": "./images/players/19-Зайнутдинов.png"
   },
   {
     "id": 33,
@@ -376,13 +376,13 @@
   {
     "id": 35,
     "name": "Рубенс",
-    "number": "55",
+    "number": "44",
     "height": "178 см",
     "weight": "68 кг",
     "position": "Полузащитник",
     "rate": null,
     "country": "./images/flags/russia.png",
-    "image": "./images/players/55-Рубенс.png"
+    "image": "./images/players/44-Рубенс.png"
   },
   {
     "id": 36,
