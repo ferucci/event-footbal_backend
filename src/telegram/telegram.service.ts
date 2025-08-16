@@ -17,14 +17,25 @@ export class TelegramService {
   }
 
   async sendMessage(message: string): Promise<void> {
-    const chatId = this.configService.get('TELEGRAM_CHAT_ID');
-    if (!chatId) {
-      throw new Error('TELEGRAM_CHAT_ID is not defined');
+    const chatId1 = this.configService.get('TELEGRAM_CHAT_ID');
+    const chatId2 = this.configService.get('TELEGRAM_CHAT_ID_2');
+
+    if (!chatId1 && !chatId2) {
+      throw new Error('Neither TELEGRAM_CHAT_ID nor TELEGRAM_CHAT_ID_2 are defined');
     }
 
     try {
-      await this.bot.sendMessage(chatId, message);
-      this.logger.log(`Message sent to Telegram: ${message}`);
+
+      if (chatId1) {
+        await this.bot.sendMessage(chatId1, message);
+        this.logger.log(`Message sent to Telegram chat 1: ${message}`);
+      }
+
+      if (chatId2) {
+        await this.bot.sendMessage(chatId2, message);
+        this.logger.log(`Message sent to Telegram chat 2: ${message}`);
+      }
+
     } catch (error) {
       this.logger.error(`Failed to send Telegram message: ${error.message}`);
       throw error;
