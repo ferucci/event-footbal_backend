@@ -22,28 +22,6 @@
     "image": "./images/players/10-М.png"
   },
   {
-    "id": 3,
-    "name": "Даса",
-    "number": "02",
-    "height": "177 см",
-    "weight": "68 кг",
-    "position": "Защитник",
-    "rate": 83,
-    "country": "./images/flags/izrail.png",
-    "image": "./images/players/02-Даса.png"
-  },
-  {
-    "id": 4,
-    "name": "Бальбуэна",
-    "number": "03",
-    "height": "188 см",
-    "weight": "88 кг",
-    "position": "Защитник",
-    "rate": 85,
-    "country": "./images/flags/russia.png",
-    "image": "./images/players/03-Бальбуэна.png"
-  },
-  {
     "id": 5,
     "name": "Майсторович",
     "number": "05",
@@ -75,17 +53,6 @@
     "rate": 84,
     "country": "./images/flags/russia.png",
     "image": "./images/players/07-Скопинцев.png"
-  },
-  {
-    "id": 8,
-    "name": "Карраскаль",
-    "number": "08",
-    "height": "180 см",
-    "weight": "75 кг",
-    "position": "Полузащитник",
-    "rate": 92,
-    "country": "./images/flags/columbia.png",
-    "image": "./images/players/08-Карраскаль.png"
   },
   {
     "id": 9,
