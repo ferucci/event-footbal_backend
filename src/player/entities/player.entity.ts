@@ -20,14 +20,17 @@ export class Player {
   @Column({ length: 50 })
   position: string;
 
-  @Column({ type: 'integer', nullable: true })  // nullable: true разрешает NULL
+  @Column({ type: 'integer', nullable: true })
   rate: number | null;
 
   @Column({ name: 'country_flag_url', length: 255 })
-  country: string; // URL to flag image
+  country: string;
 
   @Column({ name: 'player_image_url', length: 255 })
-  image: string; // URL to player image
+  image: string;
+
+  @Column({ length: 20 })
+  site: string
 
   @Column({
     type: 'timestamp',
@@ -38,4 +41,5 @@ export class Player {
 
   @Column('int')
   countClicks?: number = 0;
+
 }

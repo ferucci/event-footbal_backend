@@ -8,6 +8,7 @@
     "position": "Вратарь",
     "rate": 85,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/01-Лунев.png"
   },
   {
@@ -19,6 +20,7 @@
     "position": "Полузащитник",
     "rate": 81,
     "country": "./images/flags/brazil.png",
+    "site": "dinamo",
     "image": "./images/players/10-М.png"
   },
   {
@@ -30,6 +32,7 @@
     "position": "Защитник",
     "rate": 65,
     "country": "./images/flags/serbia.png",
+    "site": "dinamo",
     "image": "./images/players/05-Майсторович.png"
   },
   {
@@ -41,6 +44,7 @@
     "position": "Защитник",
     "rate": 82,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/06-Фернандес.png"
   },
   {
@@ -52,6 +56,7 @@
     "position": "Защитник",
     "rate": 84,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/07-Скопинцев.png"
   },
   {
@@ -63,6 +68,7 @@
     "position": "Нападающий",
     "rate": 87,
     "country": "./images/flags/brazil.png",
+    "site": "dinamo",
     "image": "./images/players/11-Гомес.png"
   },
   {
@@ -74,6 +80,7 @@
     "position": "Нападающий",
     "rate": 88,
     "country": "./images/flags/cameroun.png",
+    "site": "dinamo",
     "image": "./images/players/13-Нгамале.png"
   },
   {
@@ -85,6 +92,7 @@
     "position": "Нападающий",
     "rate": 75,
     "country": "./images/flags/marocco.png",
+    "site": "dinamo",
     "image": "./images/players/14-Маухуб.png"
   },
   {
@@ -96,6 +104,7 @@
     "position": "Защитник",
     "rate": 79,
     "country": "./images/flags/uruguay.png",
+    "site": "dinamo",
     "image": "./images/players/18-Маричаль.png"
   },
   {
@@ -107,6 +116,7 @@
     "position": "Полузащитник",
     "rate": 78,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/30-Александров.png"
   },
   {
@@ -118,6 +128,7 @@
     "position": "Вратарь",
     "rate": 76,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/31-Лещук.png"
   },
   {
@@ -129,6 +140,7 @@
     "position": "Вратарь",
     "rate": 68,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/40-Расулов.png"
   },
   {
@@ -140,6 +152,7 @@
     "position": "Вратарь",
     "rate": 79,
     "country": "./images/flags/belorusi.png",
+    "site": "dinamo",
     "image": "./images/players/47-Кудравец.png"
   },
   {
@@ -151,6 +164,7 @@
     "position": "Полузащитник",
     "rate": 77,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/50-Кутицкий.png"
   },
   {
@@ -162,6 +176,7 @@
     "position": "Нападающий",
     "rate": 79,
     "country": "./images/flags/mexica.png",
+    "site": "dinamo",
     "image": "./images/players/24-Луис.png"
   },
   {
@@ -173,6 +188,7 @@
     "position": "Полузащитник",
     "rate": 69,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/52-Смелов.png"
   },
   {
@@ -184,6 +200,7 @@
     "position": "Нападающий",
     "rate": 80,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/69-Боков.png"
   },
   {
@@ -195,6 +212,7 @@
     "position": "Нападающий",
     "rate": 90,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/70-Тюкавин.png"
   },
   {
@@ -206,6 +224,7 @@
     "position": "Полузащитник",
     "rate": 76,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/74-Фомин.png"
   },
   {
@@ -217,6 +236,7 @@
     "position": "Полузащитник",
     "rate": 78,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/77-Макаров.png"
   },
   {
@@ -228,6 +248,7 @@
     "position": "Полузащитник",
     "rate": 86,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/15-Глебов.png"
   },
   {
@@ -239,6 +260,7 @@
     "position": "Полузащитник",
     "rate": 65,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/88-Окишор.png"
   },
   {
@@ -250,6 +272,7 @@
     "position": "Нападающий",
     "rate": 77,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/91-Гладышев.png"
   },
   {
@@ -261,6 +284,7 @@
     "position": "Защитник",
     "rate": 85,
     "country": "./images/flags/uruguay.png",
+    "site": "dinamo",
     "image": "./images/players/93-Лаксальт.png"
   },
   {
@@ -272,6 +296,7 @@
     "position": "Защитник",
     "rate": null,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/79-Балаханов.png"
   },
   {
@@ -283,6 +308,7 @@
     "position": "Нападающий",
     "rate": null,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/17-Бабаев.png"
   },
   {
@@ -294,6 +320,7 @@
     "position": "Полузащитник",
     "rate": null,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/34-Гагнидзе.png"
   },
   {
@@ -305,6 +332,7 @@
     "position": "Защитник",
     "rate": null,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/56-Зайдензаль.png"
   },
   {
@@ -316,6 +344,7 @@
     "position": "Защитник",
     "rate": null,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/19-Зайнутдинов.png"
   },
   {
@@ -327,6 +356,7 @@
     "position": "Защитник",
     "rate": 83,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/04-Касерес.png"
   },
   {
@@ -338,6 +368,7 @@
     "position": "Защитник",
     "rate": 83,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/55-Осипенко.png"
   },
   {
@@ -349,6 +380,7 @@
     "position": "Полузащитник",
     "rate": null,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/44-Рубенс.png"
   },
   {
@@ -360,6 +392,7 @@
     "position": "Нападающий",
     "rate": null,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/33-Сергеев.png"
   },
   {
@@ -371,6 +404,7 @@
     "position": "Нападающий",
     "rate": null,
     "country": "./images/flags/russia.png",
+    "site": "dinamo",
     "image": "./images/players/61-Хубулов.png"
   }
 ]

@@ -37,6 +37,11 @@ export class CreatePlayerDto {
 
   @IsString()
   @IsNotEmpty()
+  @MaxLength(20)
+  site: string;
+
+  @IsString()
+  @IsNotEmpty()
   @IsUrl()
   image?: string; // URL to player image
 

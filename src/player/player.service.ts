@@ -14,8 +14,13 @@ export class PlayerService {
     private readonly playerRepository: Repository<Player>,
   ) { }
 
-  async findAll(): Promise<Player[]> {
-    return this.playerRepository.find();
+  async findAll(site: string): Promise<Player[]> {
+    site = site.toLowerCase();
+
+    return this.playerRepository.find({
+      where: { site }
+    });
+
   }
 
   async incrementClick(id: number): Promise<Player | null> {

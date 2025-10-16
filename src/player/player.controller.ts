@@ -7,6 +7,7 @@ import {
   Param,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 import { TelegramService } from 'src/telegram/telegram.service';
 import { CreatePlayerDto } from './dto/create-player.dto';
@@ -17,8 +18,13 @@ import { PlayerService } from './player.service';
 
 @Controller('cards')
 export class PlayerController {
-  private selectionCounter: number = 0;
+
+  private selectionCounters: { [site: string]: number } = {
+    spartak: 0,
+    dinamo: 0
+  };
   private lastResetDate: string = this.getCurrentDate();
+
   constructor(
     private readonly playerService: PlayerService,
     private readonly telegramService: TelegramService,
@@ -32,25 +38,44 @@ export class PlayerController {
   private checkAndResetCounter(): void {
     const today = this.getCurrentDate();
     if (today !== this.lastResetDate) {
-      this.selectionCounter = 0;
+      // Сбрасываем все счетчики
+      Object.keys(this.selectionCounters).forEach(site => {
+        this.selectionCounters[site] = 0;
+      });
       this.lastResetDate = today;
     }
   }
 
+  private incrementCounter(site: string): number {
+    this.checkAndResetCounter();
+
+    // Если сайта нет в счетчиках, добавляем его
+    if (!this.selectionCounters[site]) {
+      this.selectionCounters[site] = 0;
+    }
+
+    this.selectionCounters[site]++;
+    return this.selectionCounters[site];
+  }
+
   @Get()
-  findAll(): Promise<Player[]> {
-    return this.playerService.findAll();
+  async findAll(@Query('site') site: string): Promise<Player[]> {
+    return this.playerService.findAll(site);
   }
 
   @HttpCode(200)
-  async sendToTelegram(@Param('id') id: string): Promise<{ message: string }> {
-    this.checkAndResetCounter(); // Проверяем перед отправкой
-    this.selectionCounter++;
-
+  async sendToTelegram(
+    @Param('id') id: string,
+    @Body() cardData?: SelectedPlayerDto
+  ): Promise<{ message: string }> {
     const card = await this.playerService.findOne(+id);
+    const site = card?.site || 'Откуда ты взялся брат?)';
+
+    const counter = this.incrementCounter(site);
+
     await this.telegramService.sendMessage(
       `
-      Выбор #${this.selectionCounter}\n
+      Выбор #${counter} (${site})\n
       Был выбран Футболист "${card?.name}"!`,
     );
     return { message: 'Card information sent to Telegram successfully' };
@@ -58,8 +83,8 @@ export class PlayerController {
 
   @Post('selected')
   async handleSelectedCard(@Body() cardData: SelectedPlayerDto): Promise<{ status: string; cardId: number; }> {
+
     this.checkAndResetCounter();
-    console.log('Received card data:', cardData);
     await this.sendToTelegram(String(cardData.id))
     await this.playerService.incrementClick(cardData.id);
 

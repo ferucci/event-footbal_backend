@@ -2,6 +2,11 @@ import { MigrationInterface, QueryRunner } from 'typeorm';
 
 export class CreatePlayerTable1630000000001 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
+        const tableExists = await queryRunner.hasTable('player');
+        if (tableExists) {
+            return;
+        }
+
         await queryRunner.query(`
             CREATE TABLE "player" (
                 "id" SERIAL NOT NULL,
@@ -10,6 +15,7 @@ export class CreatePlayerTable1630000000001 implements MigrationInterface {
                 "height" character varying(20),
                 "weight" character varying(20),
                 "position" character varying(50) NOT NULL,
+                "site" character varying(20) NOT NULL,
                 "rate" integer,
                 "country_flag_url" character varying(255) NOT NULL,
                 "player_image_url" character varying(255) NOT NULL,
