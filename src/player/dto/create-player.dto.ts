@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsString, IsUrl, MaxLength } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsString, MaxLength } from 'class-validator';
 
 export class CreatePlayerDto {
   @IsString()
@@ -32,7 +32,6 @@ export class CreatePlayerDto {
 
   @IsString()
   @IsNotEmpty()
-  @IsUrl()
   country?: string; // URL to flag image
 
   @IsString()
@@ -42,7 +41,6 @@ export class CreatePlayerDto {
 
   @IsString()
   @IsNotEmpty()
-  @IsUrl()
   image?: string; // URL to player image
 
   @IsNumber()
