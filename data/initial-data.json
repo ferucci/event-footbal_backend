@@ -406,5 +406,17 @@
     "country": "./images/flags/russia.png",
     "site": "dinamo",
     "image": "./images/players/61-Хубулов.png"
+  },
+  {
+    "id": 38,
+    "name": "Миранчук",
+    "number": "21",
+    "height": "185 см",
+    "weight": "81 кг",
+    "position": "Полузащитник",
+    "rate": 87,
+    "country": "./images/flags/russia.png",
+    "site": "dinamo",
+    "image": "./images/players/21-Миранчук.png"
   }
 ]

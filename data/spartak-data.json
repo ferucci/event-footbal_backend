@@ -144,15 +144,15 @@
   },
   {
     "id": 51,
-    "name": "Рикарду МАНГАШ",
-    "number": "29",
-    "height": "179 см",
+    "name": "Кристофер Ву",
+    "number": "3",
+    "height": "191 см",
     "weight": "0",
     "position": "зщ",
     "rate": 0,
     "country": "default",
     "site": "spartak",
-    "image": "./images/players-spartak/МАНГАШ.png",
+    "image": "./images/players-spartak/Ву.png",
     "countClicks": 0
   },
   {
@@ -183,15 +183,15 @@
   },
   {
     "id": 54,
-    "name": "Хесис Медина",
-    "number": "19",
-    "height": "179 см",
+    "name": "Тео Бонгонда",
+    "number": "77",
+    "height": "177 см",
     "weight": "0",
     "position": "пз",
     "rate": 0,
     "country": "default",
     "site": "spartak",
-    "image": "./images/players-spartak/Медина.png",
+    "image": "./images/players-spartak/Бонгонда.png",
     "countClicks": 0
   },
   {
@@ -209,15 +209,15 @@
   },
   {
     "id": 56,
-    "name": "Данил Пруцев",
-    "number": "25",
-    "height": "174 см",
+    "name": "Кристофер Мартинс",
+    "number": "35",
+    "height": "188 см",
     "weight": "0",
     "position": "пз",
     "rate": 0,
     "country": "default",
     "site": "spartak",
-    "image": "./images/players-spartak/Пруцев.png",
+    "image": "./images/players-spartak/Мартинс.png",
     "countClicks": 0
   },
   {
@@ -274,15 +274,54 @@
   },
   {
     "id": 61,
-    "name": "Никита Чернов",
-    "number": "23",
-    "height": "188 см",
+    "name": "Александр Джику",
+    "number": "4",
+    "height": "182 см",
     "weight": "0",
     "position": "зщ",
     "rate": 0,
     "country": "default",
     "site": "spartak",
-    "image": "./images/players-spartak/Чернов.png",
+    "image": "./images/players-spartak/Джику.png",
+    "countClicks": 0
+  },
+  {
+    "id": 62,
+    "name": "Илья Самошников",
+    "number": "14",
+    "height": "177 см",
+    "weight": "0",
+    "position": "зщ",
+    "rate": 0,
+    "country": "default",
+    "site": "spartak",
+    "image": "./images/players-spartak/Самошников.png",
+    "countClicks": 0
+  },
+  {
+    "id": 63,
+    "name": "Манфред Угальде",
+    "number": "9",
+    "height": "173 см",
+    "weight": "0",
+    "position": "нап",
+    "rate": 0,
+    "country": "default",
+    "site": "spartak",
+    "image": "./images/players-spartak/Угальде.png",
+    "countClicks": 0
+  },
+  {
+    "id": 64,
+    "name": "Жедсон Фернандеш",
+    "number": "83",
+    "height": "180 см",
+    "weight": "0",
+    "position": "пз",
+    "rate": 0,
+    "country": "default",
+    "site": "spartak",
+    "image": "./images/players-spartak/Фернандеш.png",
     "countClicks": 0
   }
 ]
