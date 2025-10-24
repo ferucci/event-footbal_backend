@@ -8,7 +8,11 @@ import {
   Post,
   Put,
   Query,
+  UnauthorizedException,
+  UseGuards
 } from '@nestjs/common';
+import { ApiKeyGuard } from 'src/auth/guards/api-key.guard';
+import { ApiKeyInfo } from 'src/decorators/api-key-info.decorator';
 import { TelegramService } from 'src/telegram/telegram.service';
 import { CreatePlayerDto } from './dto/create-player.dto';
 import { SelectedPlayerDto } from './dto/selected-player.dto';
@@ -97,7 +101,18 @@ export class PlayerController {
   }
 
   @Post()
-  create(@Body() createCardDto: CreatePlayerDto): Promise<Player> {
+  @UseGuards(ApiKeyGuard) // Защита метода создания
+  async create(
+    @Body() createCardDto: CreatePlayerDto,
+    @ApiKeyInfo() apiKeyInfo: ApiKeyInfo // кастомный декоратор для типизации и проверки данных
+  ): Promise<Player> {
+    console.log(`Создание игрока с API ключем типа: ${apiKeyInfo.type}`);
+
+    // Дополнительная проверка: можно ограничить создание игроков только для определенных ключей
+    if (apiKeyInfo.key === 'unknown') {
+      throw new UnauthorizedException('Данный API ключ не имеет прав на создание игроков');
+    }
+
     return this.playerService.create(createCardDto);
   }
 
