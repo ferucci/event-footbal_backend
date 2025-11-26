@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsString, MaxLength } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsOptional, IsString, MaxLength } from 'class-validator';
 
 export class CreatePlayerDto {
   @IsString()
@@ -27,8 +27,8 @@ export class CreatePlayerDto {
   position?: string;
 
   @IsNumber()
-  @IsNotEmpty()
-  rate?: number;
+  @IsOptional()
+  rate?: number | null;
 
   @IsString()
   @IsNotEmpty()

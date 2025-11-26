@@ -20,7 +20,7 @@ export class Player {
   @Column({ length: 50 })
   position: string;
 
-  @Column({ type: 'integer', nullable: true })
+  @Column({ type: 'integer', nullable: true, default: null })
   rate: number | null;
 
   @Column({ name: 'country_flag_url', length: 255 })
