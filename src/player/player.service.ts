@@ -5,7 +5,7 @@ import { CreatePlayerDto } from './dto/create-player.dto';
 import { UpdateCardDto } from './dto/update-player.dto';
 import { Player } from './entities/player.entity';
 
-import { MSG_ERROR } from 'src/utils/constants';
+import { LOGS, MSG_ERROR } from 'src/utils/constants';
 
 @Injectable()
 export class PlayerService {
@@ -40,22 +40,39 @@ export class PlayerService {
     }
   }
 
-  async create(createCardDto: CreatePlayerDto): Promise<Player> {
+  async create(createCardDto: CreatePlayerDto): Promise<Player | null> {
+    const existingCard = await this.playerRepository.findOne({
+      where: {
+        // проверяю на существование по имени:
+        name: createCardDto.name
+      }
+    });
+
+    if (existingCard) {
+      console.log(MSG_ERROR.exsCard);
+      return null;
+    }
     const card = this.playerRepository.create(createCardDto);
     return this.playerRepository.save(card);
   }
 
   async update(id: number, updateCardDto: UpdateCardDto): Promise<Player | null> {
-    // const card = await this.findOne(id);
-    // this.playerRepository.merge(card, updateCardDto);
-    // return this.playerRepository.save(card);
+    console.log(LOGS.change_essence);
     return null;
   }
 
   async remove(id: number): Promise<void> {
-    return;
-    // const card = await this.findOne(id);
-    // await this.playerRepository.remove(card);
+
+    const card = await this.findOne(id);
+
+    if (!card) return;
+
+    try {
+      await this.playerRepository.remove(card);
+    } catch (error) {
+      throw new NotFoundException(MSG_ERROR.edel);
+    }
+
   }
 
 }

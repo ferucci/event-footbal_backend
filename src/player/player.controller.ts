@@ -14,6 +14,7 @@ import {
 import { ApiKeyGuard } from 'src/auth/guards/api-key.guard';
 import { ApiKeyInfo } from 'src/decorators/api-key-info.decorator';
 import { TelegramService } from 'src/telegram/telegram.service';
+import { MSG_ERROR } from 'src/utils/constants';
 import { CreatePlayerDto } from './dto/create-player.dto';
 import { SelectedPlayerDto } from './dto/selected-player.dto';
 import { UpdateCardDto } from './dto/update-player.dto';
@@ -105,18 +106,19 @@ export class PlayerController {
   async create(
     @Body() createCardDto: CreatePlayerDto,
     @ApiKeyInfo() apiKeyInfo: ApiKeyInfo // кастомный декоратор для типизации и проверки данных
-  ): Promise<Player> {
+  ): Promise<Player | null> {
     console.log(`Создание игрока с API ключем типа: ${apiKeyInfo.type}`);
 
     // Дополнительная проверка: можно ограничить создание игроков только для определенных ключей
     if (apiKeyInfo.key === 'unknown') {
-      throw new UnauthorizedException('Данный API ключ не имеет прав на создание игроков');
+      throw new UnauthorizedException(MSG_ERROR.eapikey);
     }
 
     return this.playerService.create(createCardDto);
   }
 
   @Put(':id')
+  @UseGuards(ApiKeyGuard)
   update(
     @Param('id') id: string,
     @Body() updateCardDto: UpdateCardDto,
@@ -125,6 +127,7 @@ export class PlayerController {
   }
 
   @Delete(':id')
+  @UseGuards(ApiKeyGuard)
   remove(@Param('id') id: string): Promise<void> {
     return this.playerService.remove(+id);
   }
