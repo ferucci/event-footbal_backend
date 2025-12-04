@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { ConsentLog } from 'src/consent-log/entities/consent-log.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Player {
@@ -41,5 +42,8 @@ export class Player {
 
   @Column('int')
   countClicks?: number = 0;
+
+  @OneToMany(() => ConsentLog, (consent) => consent.player)
+  consents: ConsentLog[];
 
 }

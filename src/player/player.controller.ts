@@ -4,10 +4,12 @@ import {
   Delete,
   Get,
   HttpCode,
+  NotFoundException,
   Param,
   Post,
   Put,
   Query,
+  Req,
   UnauthorizedException,
   UseGuards
 } from '@nestjs/common';
@@ -21,6 +23,11 @@ import { UpdateCardDto } from './dto/update-player.dto';
 import { Player } from './entities/player.entity';
 import { PlayerService } from './player.service';
 
+import { ConsentLogService } from '../consent-log/consent-log.service';
+import { CreateConsentDto } from '../consent-log/dto/create-consent.dto';
+
+import type { CustomRequest } from './types';
+
 @Controller('cards')
 export class PlayerController {
 
@@ -33,6 +40,7 @@ export class PlayerController {
   constructor(
     private readonly playerService: PlayerService,
     private readonly telegramService: TelegramService,
+    private readonly consentLogService: ConsentLogService,
   ) { }
 
   private getCurrentDate(): string {
@@ -43,7 +51,7 @@ export class PlayerController {
   private checkAndResetCounter(): void {
     const today = this.getCurrentDate();
     if (today !== this.lastResetDate) {
-      // Сбрасываем все счетчики
+      // Сбрасываю все счетчики
       Object.keys(this.selectionCounters).forEach(site => {
         this.selectionCounters[site] = 0;
       });
@@ -54,7 +62,7 @@ export class PlayerController {
   private incrementCounter(site: string): number {
     this.checkAndResetCounter();
 
-    // Если сайта нет в счетчиках, добавляем его
+    // Если сайта нет в счетчиках, добавляю его
     if (!this.selectionCounters[site]) {
       this.selectionCounters[site] = 0;
     }
@@ -87,14 +95,58 @@ export class PlayerController {
   }
 
   @Post('selected')
-  async handleSelectedCard(@Body() cardData: SelectedPlayerDto): Promise<{ status: string; cardId: number; }> {
-
+  async handleSelectedCard(
+    @Body() cardData: SelectedPlayerDto,
+    @Req() request: CustomRequest, // Добавил свойство к Request
+  ): Promise<{ status: string; cardId: number; }> {
     this.checkAndResetCounter();
-    await this.sendToTelegram(String(cardData.id))
+
+    // Получаю данные о игроке
+    const card = await this.playerService.findOne(cardData.id);
+
+    if (!card) {
+      throw new NotFoundException('Player not found');
+    }
+
+    // Получаю IP адрес пользователя
+    const ipAddress = request.headers['x-forwarded-for'] ||
+      request.socket?.remoteAddress ||
+      request.connection?.remoteAddress ||
+      'unknown';
+
+    // Создаю запись о согласии
+    const createConsentDto: CreateConsentDto = {
+      ipAddress: Array.isArray(ipAddress) ? ipAddress[0] : ipAddress,
+      userAgent: request.headers['user-agent'],
+      playerId: cardData.id,
+      site: card.site,
+      consentType: 'privacy_policy',
+      consentVersion: '1.0', // Версия политики конфиденциальности
+      referrerUrl: request.headers['referer'] || request.headers['origin'],
+      sessionId: 'no used'
+    };
+
+    await this.consentLogService.createConsent(createConsentDto);
+
+    // Отправляю в Telegram
+    await this.sendToTelegram(String(cardData.id));
+
+    // Увеличиваю счетчик кликов
     await this.playerService.incrementClick(cardData.id);
 
     return { status: 'success', cardId: cardData.id };
   }
+
+  // // Метод для получения статистики согласий
+  // @Get('consents/stats')
+  // async getConsentStats(
+  //   @Query('site') site: string,
+  //   @Query('startDate') startDate?: string,
+  //   @Query('endDate') endDate?: string,
+  // ): Promise<any> {
+  //   // метод для получения статистики
+  //   return this.consentLogService.getConsentStats(site, startDate, endDate);
+  // }
 
   @Get(':id')
   findOne(@Param('id') id: string): Promise<Player | null> {
