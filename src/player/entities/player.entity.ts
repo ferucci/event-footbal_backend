@@ -1,5 +1,5 @@
-import { ConsentLog } from 'src/consent-log/entities/consent-log.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { ConsentLog } from '../../consent-log/entities/consent-log.entity';
 
 @Entity()
 export class Player {
@@ -31,7 +31,7 @@ export class Player {
   image: string;
 
   @Column({ length: 20 })
-  site: string
+  site: string;
 
   @Column({
     type: 'timestamp',
@@ -40,10 +40,9 @@ export class Player {
   })
   createdAt: Date;
 
-  @Column('int')
-  countClicks?: number = 0;
+  @Column({ type: 'int', default: 0 })
+  countClicks: number;
 
   @OneToMany(() => ConsentLog, (consent) => consent.player)
   consents: ConsentLog[];
-
 }
