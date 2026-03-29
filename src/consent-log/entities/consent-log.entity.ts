@@ -27,7 +27,7 @@ export class ConsentLog {
   @Column({ name: 'player_id' })
   playerId: number;
 
-  @ManyToOne(() => Player, (player) => player.consents)
+  @ManyToOne(() => Player, (player) => player.consents, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'player_id' })
   player: Player;
 
