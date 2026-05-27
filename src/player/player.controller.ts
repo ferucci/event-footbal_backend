@@ -33,7 +33,8 @@ export class PlayerController {
 
   private selectionCounters: { [site: string]: number } = {
     spartak: 0,
-    dinamo: 0
+    dinamo: 0,
+    finale: 0
   };
   private lastResetDate: string = this.getCurrentDate();
 

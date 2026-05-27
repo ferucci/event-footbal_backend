@@ -15,7 +15,7 @@ export class PlayerService {
   ) { }
 
   async findAll(site: string): Promise<Player[]> {
-    site = site.toLowerCase();
+    site = site?.toLowerCase();
 
     return this.playerRepository.find({
       where: { site }
